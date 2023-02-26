@@ -1,7 +1,7 @@
+import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
 import React,{useReducer} from 'react';
 import { Container } from 'reactstrap';
-import "bootstrap/dist/css/bootstrap.min.css"
-import './App.css';
 
 import { TodoContext } from './context/TodoContent';
 import reducer from './context/reducer';
