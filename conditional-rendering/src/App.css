@@ -1,0 +1,15 @@
+/* .App {
+ background-color: #282c34;
+} */
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+li{
+  list-style-type: square;
+}
