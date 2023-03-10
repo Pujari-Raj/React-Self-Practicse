@@ -1,6 +1,5 @@
 // import React, { useState } from "react";
 
-
 /* In this file we have identfied the problem we face if we don't use contextapi
    i.e 1. As you can see in parent class (App) we have created a state known as 
           brandname and child class(Child) want to access this state 
