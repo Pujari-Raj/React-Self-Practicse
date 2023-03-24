@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  margin: 5rem;
+}
+
+.modal-wrapper{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(189, 189, 189, 0.9);
+}
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 30rem;
+  padding: 2rem 3rem;
+  border-radius: .5rem;
+  background-color: #fff;
+}
+
+.model-btn{
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: none;
+  background-color: #212121;
+  color: #fff; 
+}
+
+.model-btn:hover{
+  background-color: #fff;
+  color: #212121;
+  border: #212121;
+  transform: scale(1);
+  transform: all 3s;
+}
