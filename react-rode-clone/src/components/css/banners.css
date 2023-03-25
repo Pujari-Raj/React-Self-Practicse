@@ -1,0 +1,49 @@
+/*Custom Style for banners*/
+
+@media screen and (min-width:992px) {
+
+    /*keeping same height for all banners*/
+    .hero-banner {
+        height: 700px;
+    }
+
+
+    
+    /*Style for pre-launch banner*/
+    .pre_launch_banner {
+        background-image: url("/public/assets/hero-banners/RODEX_Prelaunch_medium.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    /*Styles for different-banners*/
+    .hero-banner-1-img {
+        background-image: url("/public/assets/hero-banners/hero--banner-img.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .hero-banner-2-img {
+        background-image: url("/public/assets/hero-banners/hero-banner-img-2.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .hero-banner-3-img {
+        background-image: url("/public/assets/hero-banners/hero-banner-img-3.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
