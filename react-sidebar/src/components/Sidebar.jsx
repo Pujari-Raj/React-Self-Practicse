@@ -8,8 +8,12 @@ import {
   FaThList,
   FaUserAlt,
 } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
-const Sidebar = () => {
+const Sidebar = ({children}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
     {
       path: "/",
@@ -44,14 +48,23 @@ const Sidebar = () => {
   ];
   return (
     <div className="container">
-      <div className="sidebar">
+      <div style={{width: isOpen ? "300px" : "50px"}} className="sidebar">
         <div className="top_section">
-          <h1 className="logo">logo</h1>
-          <div className="bars">
-            <FaBars/>
+          <h1 style={{display: isOpen ? "block" : "none"}} className="logo">logo</h1>
+          <div style={{marginLeft: isOpen ? "30px" : "0px"}} className="bars">
+            <FaBars onClick={toggle}  />
           </div>
         </div>
+        {
+          menuItem.map((item, index) => (
+            <NavLink to={item.path} key={index} className="link" >
+              <div className="icon">{item.icon}</div>
+              <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+            </NavLink>
+          ))
+        }
       </div>
+      <main>{children}</main>
     </div>);
 };
 
