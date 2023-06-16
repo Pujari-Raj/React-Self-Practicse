@@ -13,6 +13,13 @@ const UseMemoCounter = () => {
         setCounterTwo(countertwo+1);
     }
     
+    /* If you see the code for useCallback hook & useMemo is similar
+        but usecallback hook  caches the provided functn instance itself
+        (if we need to cache a functn use useCallback)
+        but useMemo hook  invokes the provided functn & caches it's result
+        (if we need to cache the result of invoked functn)
+
+    */
     const isEven = useMemo(() => {
         let i=0;
         while (i<180000) {
