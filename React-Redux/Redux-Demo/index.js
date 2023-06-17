@@ -8,6 +8,11 @@ const bindActionCreators = redux.bindActionCreators;
 const CAKE_ORDERED = 'CAKE_ORDERED';
 const CAKE_RESTOCKED = 'CAKE_RESTOCKED';
 
+// logger is package used to keep tht logs of application
+const reduxlogger = require('redux-logger');
+const logger = reduxlogger.createLogger();
+
+const applymiddleware = redux.applyMiddleware;
 
 // state of application (assume we have in-total 12 cakes) Step-2 Declare initialState
 const initialState = {
@@ -56,12 +61,12 @@ const reducer = (state = initialState, action) => {
 }
 
 //step-1 Creating a Store
-const store = createStore(reducer);
+const store = createStore(reducer, applymiddleware(logger));
 console.log('initialState-', store.getState());
 
 //Step-5 Subscribe to store
 const unsubscribe = store.subscribe(() => {
-    console.log('Update State-', store.getState());
+    // console.log('Update State-', store.getState());
 })
 
 //Step- subscribe to actions to update the store  
