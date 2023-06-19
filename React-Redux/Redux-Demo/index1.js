@@ -93,6 +93,12 @@ const iceCreamreducer = (state = initialIcecreamState, action) => {
                 ...state,
                 numOfIcecreams: state.numOfIcecreams + action.payload,
             }
+        // added extra reducer(adding cake action inside the iceCreamd) 
+        case CAKE_ORDERED:
+            return{
+                ...state,
+                numOfIcecreams : state.numOfIcecreams - 1
+        }
         default:
             return state;
     }
