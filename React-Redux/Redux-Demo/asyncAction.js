@@ -38,7 +38,7 @@ const fetchusersFailed = error => {
     }
 }
 
-//
+// functions for different actions
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_USERS_REQUESTED:

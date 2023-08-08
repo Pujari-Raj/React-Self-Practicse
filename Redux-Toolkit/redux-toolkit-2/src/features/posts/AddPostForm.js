@@ -1,15 +1,36 @@
-import { useState } from "react";
-
-import React from 'react'
+import React,{ useState }  from 'react'
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit"; //Generates the random I'd
+import { postAdded } from './postSlice';
 
 // Component for adding posts
 const AddPostForm = () => {
+
+    const dispatch = useDispatch();
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
     const onTitleChanged = e => setTitle(e.target.value)
     const onContentChanged = e => setContent(e.target.value)
+
+    //
+    const onsavePostClicked = () => {
+        if (title && content) {
+            console.log('content received',title+" ",content);
+            dispatch(
+                // postAdded({
+                //     id : nanoid(),
+                //     title,
+                //     content
+                // })
+                postAdded(title, content)
+            )
+
+            setTitle('');
+            setContent('');
+        }
+    }
 
   return (
    <>
@@ -38,7 +59,7 @@ const AddPostForm = () => {
                 />
                 <button
                     type="button"
-                   
+                   onClick={onsavePostClicked}
                 >Save Post</button>
             </form>
         </section>

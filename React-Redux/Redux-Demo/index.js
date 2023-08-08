@@ -8,7 +8,7 @@ const bindActionCreators = redux.bindActionCreators;
 const CAKE_ORDERED = 'CAKE_ORDERED';
 const CAKE_RESTOCKED = 'CAKE_RESTOCKED';
 
-// logger is package used to keep tht logs of application
+// logger is package used to keep the logs of application
 const reduxlogger = require('redux-logger');
 const logger = reduxlogger.createLogger();
 
