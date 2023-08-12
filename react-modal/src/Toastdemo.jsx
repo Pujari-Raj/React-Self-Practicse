@@ -4,24 +4,30 @@ import { toast, ToastContainer } from "react-toastify";
 
 const Toastdemo = () => {
 
+    // states
+    // const [position, setPosition] = useState();
+
+
     // functn for different types of toasts
-    const handleClick = (toastType) => {
+    const handleClick = (toastType, toastmessage) => {
         switch (toastType) {
             case 'success':
-                toast.success('User Added Successfully');
+                toast.success(`${toastmessage}`, {
+                    position: position
+                });
+                
                 break;
             case 'error':
-                toast.error('Operation Unsuccessfull');
+                toast.error(`${toastmessage}`);
                 break;
             case 'warning':
-                toast.warn('Warning Something Is going wrong');
+                toast.warn(`${toastmessage}`);
+                
                 break;
         }
     }
 
-    // states
-    const [location, setLocation] = useState("top-right");
-    const [toastType, setToastType] = useState("");
+    // const [toastType, setToastType] = useState("");
 
     //
     // const handleClick = () => {
@@ -68,7 +74,7 @@ const Toastdemo = () => {
         <>
             <div>
                 <ToastContainer
-                    position='top-right'
+                    position='top-center'
                     autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}
@@ -94,7 +100,7 @@ const Toastdemo = () => {
                         // setToastType("success");
                         // setLocation("top-right")
                         // handleClick();
-                        handleClick("success");
+                        handleClick("success", 'User Added Successfully');
                     }}>Show Success Toast</button>
 
                 <button style={{
@@ -113,7 +119,7 @@ const Toastdemo = () => {
                         // setLocation("top-right")
                         // handleClick();
 
-                        handleClick("error");
+                        handleClick("error",'Operation Unsuccessfull');
                     }}>Show error Toast</button>
 
                 <button
@@ -133,7 +139,7 @@ const Toastdemo = () => {
                         // setLocation("top-right")
                         // handleClick();
 
-                        handleClick("warning");
+                        handleClick("warning", 'Warning Something Is going wrong');
                     }}>Show warning Toast</button>
             </div>
 
