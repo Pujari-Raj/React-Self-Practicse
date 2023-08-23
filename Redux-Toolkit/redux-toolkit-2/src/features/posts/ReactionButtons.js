@@ -10,8 +10,6 @@ const reactionEmoji = {
   clap: "🎬",
 };
 
-
-
 const ReactionButtons = ({ post }) => {
     console.log('reactionButton clicked');
   const dispacth = useDispatch()
