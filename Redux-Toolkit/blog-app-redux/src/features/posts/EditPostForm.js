@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPostById, updatePost, deletePost } from "./postSlice";
 import { selectAllUsers } from "../users/usersSlice";
-import { addNewPost } from "./postSlice";
 import { useParams, useNavigate } from "react-router-dom";
 
-// Component for adding posts
+// Component for editing posts
 const EditPostForm = () => {
   const { postId } = useParams();
   const navigate = useNavigate();
@@ -16,7 +15,8 @@ const EditPostForm = () => {
   const [title, setTitle] = useState(post?.title);
   const [content, setContent] = useState(post?.body);
   const [userId, setUserId] = useState(post?.userId);
-  // state for adding post
+
+  // state for status of a post
   const [requestStatus, setRequestStatus] = useState("idle");
 
   const onTitleChanged = (e) => setTitle(e.target.value);
@@ -63,7 +63,7 @@ const EditPostForm = () => {
     }
   };
 
-   //function for adding/saving post
+   //function for deleting post
    const ondeletePostClicked = () => { 
       try {
         setRequestStatus("pending");
