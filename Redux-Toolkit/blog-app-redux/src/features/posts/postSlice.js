@@ -50,7 +50,23 @@ export const updatePost = createAsyncThunk(
   }
 );
 
-
+// function for delete post into API (but data doesn't get really added into API)
+export const deletePost = createAsyncThunk(
+  "posts/deletePost",
+  async (initialPost) => {
+    const {id} = initialPost
+    try {
+      const response = await axios.delete(`${POST_URL}/${id}`);
+      if (response?.status === 200) {
+        return initialPost;
+      }
+      return `${response?.status} : ${response?.statusText}`;
+      
+    } catch (error) {
+      return error.message;
+    }
+  }
+);
 
 const postSlice = createSlice({
   name: "posts",
