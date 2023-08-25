@@ -17,13 +17,13 @@ const PostLists = () => {
     //state for getting postsError   
     const error = useSelector(getPostsError);
 
-    useEffect(() => {
-        // if postsStatus is idle then fetch all the posts
-      if (postsStatus === 'idle') {
-        dispatch(fetchPosts())
-      }
+    // useEffect(() => {
+    //     // if postsStatus is idle then fetch all the posts
+    //   if (postsStatus === 'idle') {
+    //     dispatch(fetchPosts())
+    //   }
 
-    }, [postsStatus, dispatch])
+    // }, [postsStatus])
     
     let content;
     
@@ -33,7 +33,8 @@ const PostLists = () => {
     }
         // if postsStatus == succeed , then show all posts
     else if (postsStatus === 'succeed') {
-        const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a, b));
+        // const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
+        const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date))
         content = orderedPosts.map(post => <PostsExcerpt key={post.id} post={post} />);
     }
         // if postsStatus == failed , then show error

@@ -26,10 +26,31 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
 export const addNewPost = createAsyncThunk(
   "posts/addNewPost",
   async (initialPost) => {
-    const response = await axios.post(POST_URL, initialPost);
-    return response.data;
+    try {
+      const response = await axios.post(POST_URL, initialPost);
+      return response.data;
+    } catch (error) {
+      return error.message;
+    }
   }
 );
+
+// function for updating post into API (but data doesn't get really added into API)
+export const updatePost = createAsyncThunk(
+  "posts/updatePost",
+  async (initialPost) => {
+    const {id} = initialPost
+    try {
+      const response = await axios.put(`${POST_URL}/${id}`, initialPost);
+      return response.data;
+    } catch (error) {
+      // return error.message;
+      return initialPost ; // only for testing Redux!
+    }
+  }
+);
+
+
 
 const postSlice = createSlice({
   name: "posts",
@@ -124,7 +145,28 @@ const postSlice = createSlice({
         };
         console.log(action.payload);
         state.posts.push(action.payload);
-      });
+      })
+      .addCase(updatePost.fulfilled,(state, action)=> {
+        if (!action.payload?.id) {
+          console.log("Couldn't find the post you want to edit");
+          console.log(action.payload);
+          return;
+        }
+        const {id} = action.payload;
+        action.payload.date = new Date().toISOString();
+        const posts = state.posts.filter(post => post.id !== id);
+        state.posts = [...posts, action.payload]
+      })
+      .addCase(deletePost.fulfilled,(state, action)=> {
+        if (!action.payload?.id) {
+          console.log("Couldn't delete the post you want to delete");
+          console.log(action.payload);
+          return;
+        }
+        const {id} = action.payload;
+        const posts = state.posts.filter(post => post.id !== id);
+        state.posts = posts;  
+      })
   },
 });
 
