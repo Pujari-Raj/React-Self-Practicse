@@ -23,13 +23,13 @@ const PostLists = () => {
     //     dispatch(fetchPosts())
     //   }
 
-    // }, [postsStatus])
+    // }, [dispatch, postsStatus])
     
     let content;
     
     // if postsStatus == loading , then show loading
     if (postsStatus === 'loading') {
-        content  = <p>"loading"</p>
+        content  = <p>"Loading..."</p>
     }
         // if postsStatus == succeed , then show all posts
     else if (postsStatus === 'succeed') {
