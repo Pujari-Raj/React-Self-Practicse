@@ -78,10 +78,9 @@ const unsubscribe = store.subscribe(() => {
 // using bindActionCreators (bindActionCreators is convetion for calling actions in redux)
 const actions = bindActionCreators({orderCake, restokeCake}, store.dispatch);
 actions.orderCake();
-actions.orderCake();
-actions.orderCake();
+// actions.orderCake();
+// actions.orderCake();
 actions.restokeCake(5);
 
 // & finally unsubscribe to the changes
 unsubscribe();
-

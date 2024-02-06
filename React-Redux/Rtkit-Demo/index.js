@@ -10,6 +10,9 @@ const unsubscribe = store.subscribe(() => {
     console.log(' Updated State-', store.getState());
 })
 
+// store.dispatch(cakeActions.ordered())
+// store.dispatch(cakeActions.restocked(5))
 store.dispatch(fetchUsers());
 
+// console.log(' Updated State-after-fetchUsers', store.getState());
 // unsubscribe();

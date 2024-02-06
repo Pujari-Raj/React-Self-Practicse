@@ -5,19 +5,19 @@ const thunkMiddleware = require('redux-thunk').default
 const axios = require('axios');
 const applyMiddleware = redux.applyMiddleware;
 
-// 
+// initialState of store
 const initialState = {
     loading: false,
     users: [],
     error: '',
 }
 
-//
+// actions
 const FETCH_USERS_REQUESTED = 'FETCH_USERS_REQUESTED';
 const FETCH_USERS_SUCCEEDED = 'FETCH_USERS_SUCCEEDED';
 const FETCH_USERS_FAILED = 'FETCH_USERS_FAILED';
 
-//
+// Action Creators
 const fetchusersrequest = () => {
     return {
         type: FETCH_USERS_REQUESTED,
@@ -70,7 +70,7 @@ const fetchUsers = () => {
         axios
         .get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
-            const users = response.data.map((user) => user.id)
+            const users = response.data.map((user) => user.name)
             dispatch(fetchusersSuccess(users))  
         })
         .catch((error) => {

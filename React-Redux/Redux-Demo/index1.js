@@ -129,12 +129,12 @@ const unsubscribe = store.subscribe(() => {
 const actions = bindActionCreators({orderCake, restokeCake, orderIcecream, restockIcecream}, store.dispatch);
 actions.orderCake();
 actions.orderCake();
-actions.orderCake();
+// actions.orderCake();
 actions.restokeCake(5);
 
-actions.orderIcecream();
-actions.orderIcecream();
-actions.orderIcecream();
+// actions.orderIcecream();
+// actions.orderIcecream();
+// actions.orderIcecream();
 actions.restockIcecream(10);
 
 

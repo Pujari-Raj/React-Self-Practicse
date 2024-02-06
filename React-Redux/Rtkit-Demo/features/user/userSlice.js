@@ -9,10 +9,13 @@ const initialState = {
     error: ''
 }
 
+/**
+ * createAsyncThunk is a function provided by Redux Toolkit to handle asynchronous actions in Redux. It takes two arguments: a string representing the action type, and a payload creator function. 
+ */
 const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
     return axios
     .get('https://jsonplaceholder.typicode.com/users')
-    .then((response) => response.data.map((user) => user.id))
+    .then((response) => response.data.map((user) => user.name))
 })
 
 
@@ -24,14 +27,15 @@ const userSlice = createSlice({
             state.loading = true;
         })
         builder.addCase(fetchUsers.fulfilled, (state, action) => {
-            state.loading = false
-            state.users = action.payload
-            state.error = ''
+            console.log("users-payload->",action.payload);
+            state.loading = false;
+            state.users = action.payload;
+            state.error = '';
         })
         builder.addCase(fetchUsers.rejected, (state) => {
-            state.loading = false
-            state.users = []
-            state.error = action.error.message
+            state.loading = false;
+            state.users = [];
+            state.error = action.error.message;
         })
     },
 })
